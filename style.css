@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COMMENT */
+
+img{
+    max-width: 100%;
+}
+
+:root{
+    --soft-red: hsl(7, 99%, 70%);
+    --yellow: hsl(51, 100%, 49%);
+    --dark-desaturated-cyan: hsl(167, 40%, 24%);
+    --dark-blue: hsl(198, 62%, 26%);
+    --dark-moderate-cyan: hsl(168, 34%, 41%);
+
+    --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+    --very-dark-grayish-blue: hsl(213, 9%, 39%);
+    --dark-grayish-blue: hsl(232, 10%, 55%);
+    --grayish-blue: hsl(210, 4%, 67%);
+    --white: hsl(0, 0%, 100%);
+
+}
+
+body{
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+a{
+    font-family: 'Fraunces', serif;
+}
+
+header{
+    background-image: url(./images/desktop/image-header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding-top: 2rem;
+    padding-bottom: 10rem;
+}
+
+nav.navigation {  /* nav.navigation refers to the nav element with a class of navigation */
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 2.5vw;
+    margin-bottom: 5rem;
+}
+
+.navigation__links{
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navigation__links a {
+    color: var(--very-dark-desaturated-blue);
+    text-decoration: none;
+    background-color: var(--white);
+    padding: 0.7em 1.5em;
+    border-radius: 100px;
+}
+
+.hamburger {
+    display: none;
+}
+
+header h1 {
+    text-align: center;
+    text-transform: uppercase; /* reason for accessibility */
+    margin-bottom: 4rem;
+    letter-spacing: normal, 10px;
+}
+
+header > img {
+    position: relative;
+    left: 50%;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(-50%, 0%);
+    }
+
+    /* opacity and transform are the things that should be animated */
+}
+
+
+.section1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+section article{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    padding: 100px;
+}
+
+/* section article h2{
+    text-align: left;
+} */
+
+section article p{
+    line-height: 1.6;
+    font-size: 18px;
+    color: var(--grayish-blue);
+}
+
+.link{
+    color: var(--very-dark-desaturated-blue);
+    text-transform: uppercase;
+    text-decoration: underline 5px solid var(--yellow);
+}
+
+
+section img{
+    width: 50vw;
+    height: 70vh;
+    object-fit: cover;
+}
+
+.transform{
+    display: flex;
+}
+
+.stand{
+    display: flex;
+}
+
+.section2{
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
+}
+
+.graphics{
+    position: relative;
+}
+
+.photography{
+    position: relative;
+}
+
+.section2 img{
+    position: relative;
+}
+
+.section2 article{
+    position: absolute;
+    bottom: -40px;
+    left: 1px;
+    z-index: 3;
+    text-align: center;
+}
+
+.section2 article h3{
+    line-height: 2.5;
+}
+
+.section2 article p{
+    color: var(--dark-desaturated-cyan);
+}
+
+/* section{
+    display: flex;
+    /* height: 00px; */
+    /* min-height: 100vh;
+    flex-wrap: wrap;
+}
+} */ 
+
+/* section article{
+    height: 85vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+} */
+    /* align-items: center;
+    width: 50vw; */
+    
+/* 
+section img{
+    margin-right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+} */
+
+
+@media (max-width: 700px){
+    .navigation__links{
+        /* display: none; */
+        transform: scaleY(0);
+        transition: 0.4s;
+        transform-origin: top;
+        position: absolute;
+        top: 6rem;
+        padding-block: 3rem;
+        background-color: var(--white);
+        color: var(--dark-blue);
+        width: 90vw;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+        z-index: 2;
+    }
+
+    .navigation__links::after{
+        content: '';
+        /* these border tricks to create a triangle, check w3schools to make basic shapes */
+        border-left: 25px solid transparent;
+        border-top: 25px solid transparent;
+        border-right: 25px solid var(--white);
+
+        /* positon: absolute will make this pseudo element relative to the navigation__links above because navigation__links is also positioned */
+        position: absolute;
+
+        /* top: -25px to bring it 25px upwards (the same value as the border above). right: 0 to stick it to the right edge of the navigation__links */
+        top: -25px;
+        right: 0;
+    }
+
+    .navigation__links a{
+        background-color: var(--yellow);
+
+    }
+    
+    nav.navigation{
+        padding-inline: 5vw;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
